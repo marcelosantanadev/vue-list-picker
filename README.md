@@ -120,8 +120,8 @@ export default {
 | left-items          | Array   | null              | Array of objects to be displayed in the left. Must have at least a key and content property     |
 | right-items         | Array   | null              | Array of objects to be displayed in the right. Must have at least a key and content property    |
 | moved-item-location | String  | 'top'             | After move a item, if this is set to top will move the item to the top, otherwise to the bottom |
-| title-left          | String  | 'Items available' | Title name of the left column                                                                   |
-| title-right         | String  | 'Items selected'  | Title name of the right column                                                                  |
+| title-left          | String  | 'Selecione o tipo de campo' | Title name of the left column                                                                   |
+| title-right         | String  | 'Tipo de campo selecionado'  | Title name of the right column                                                                  |
 | title-centered      | Boolean | true              | Centralizes the title text                                                                      |
 | title-class         | String  | ''                | If you want to set a custom class to the columns title, set it here                             |
 | title-substr        | String  | 20                | Number of characters to display inside the columns title. Above this, will set a '...' mask     |

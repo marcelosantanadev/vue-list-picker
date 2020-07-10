@@ -18,29 +18,29 @@ const listpickerStory = storiesOf('VueListPicker', module)
   .addDecorator(withKnobs)
 
 listpickerStory.add('Default', () => {
-  const label1 = 'Object 1'
+  const label1 = 'Object 1';
   const defaultValue1 = {
-    key: 1,
+    id: 1,
     content: 'Item 1'
-  }
-  const value1 = object(label1, defaultValue1)
+  };
+  const value1 = object(label1, defaultValue1);
 
-  const label2 = 'Object 2'
+  const label2 = 'Object 2';
   const defaultValue2 = {
-    key: 2,
+    id: 2,
     content: 'Item 2'
-  }
-  const value2 = object(label2, defaultValue2)
+  };
+  const value2 = object(label2, defaultValue2);
 
-  const label3 = 'Object 3'
+  const label3 = 'Object 3';
   const defaultValue3 = {
-    key: 3,
+    id: 3,
     content: 'Item 3'
-  }
-  const value3 = object(label3, defaultValue3)
+  };
+  const value3 = object(label3, defaultValue3);
 
-  const leftItems = [value1, value2, value3]
-  const rightItems = []
+  const leftItems = [value1, value2, value3];
+  const rightItems = [];
 
   return {
     components: { VueListPicker },
@@ -62,15 +62,15 @@ listpickerStory.add('Default', () => {
       },
       movedItemLocation: {
         type: String,
-        default: select('Move item to top or bottom', { top: 'top', bottom: 'bottom' }, 'top')
+        default: select('Move item to top or bottom', { top: 'top', bottom: 'bottom' }, 'bottom')
       },
       titleLeft: {
         type: String,
-        default: text('Title of the left column', 'Items available')
+        default: text('Title of the left column', 'Selecione o tipo de campo')
       },
       titleRight: {
         type: String,
-        default: text('Title of the right column', 'Items selected')
+        default: text('Title of the right column', 'Tipo de campo selecionado')
       },
       titleCentered: {
         type: Boolean,
@@ -82,7 +82,7 @@ listpickerStory.add('Default', () => {
       },
       titleSubstr: {
         type: Number,
-        default: number('Title substring', 20)
+        default: number('Title substring', 40)
       },
       buttonClass: {
         type: String,
@@ -90,7 +90,7 @@ listpickerStory.add('Default', () => {
       },
       contentKey: {
         type: String,
-        default: text('Content attribute key', 'key')
+        default: text('Content attribute key', 'id')
       },
       contentAttr: {
         type: String,

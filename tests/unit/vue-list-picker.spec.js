@@ -99,11 +99,11 @@ describe('When I create the VueListPicker component', () => {
     const titleLeft = wrapper.vm.$options.props.titleLeft
     expect(titleLeft.required).toBeFalsy()
     expect(titleLeft.type).toBe(String)
-    expect(titleLeft.default).toBe('Items available')
+    expect(titleLeft.default).toBe('Selecione o tipo de campo')
     const titleRight = wrapper.vm.$options.props.titleRight
     expect(titleRight.required).toBeFalsy()
     expect(titleRight.type).toBe(String)
-    expect(titleRight.default).toBe('Items selected')
+    expect(titleRight.default).toBe('Tipo de campo selecionado')
     const titleCentered = wrapper.vm.$options.props.titleCentered
     expect(titleCentered.required).toBeFalsy()
     expect(titleCentered.type).toBe(Boolean)
@@ -136,10 +136,10 @@ describe('When I create the VueListPicker component', () => {
     expect(component.exists()).toBe(true)
     const leftTitle = wrapper.find('.vue-list-picker>.list-picker-left>.list-picker-title')
     expect(leftTitle.exists()).toBe(true)
-    expect(leftTitle.text()).toBe('Items available')
+    expect(leftTitle.text()).toBe('Selecione o tipo de campo')
     const rightTitle = wrapper.find('.vue-list-picker>.list-picker-right>.list-picker-title')
     expect(rightTitle.exists()).toBe(true)
-    expect(rightTitle.text()).toBe('Items selected')
+    expect(rightTitle.text()).toBe('Tipo de campo selecionado')
     console.error = consoleLog
   })
 
@@ -631,8 +631,8 @@ describe('When I create the VueListPicker component', () => {
       leftItems,
       rightItems,
       movedItemLocation: 'top',
-      titleLeft: 'Items available',
-      titleRight: 'Items selected',
+      titleLeft: 'Selecione o tipo de campo',
+      titleRight: 'Tipo de campo selecionado',
       titleCentered: true,
       titleClass: '',
       titleSubstr: 20,

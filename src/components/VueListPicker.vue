@@ -18,26 +18,26 @@
       </div>
     </div>
     <div class="list-picker-actions">
-      <button @click="moveAllRight" :class="buttonClass">
+      <a @click="moveAllRight" :class="buttonClass">
         <img v-if="!this.$slots.moveAllRight" src="../assets/chevrons-right.svg" alt="Chevrons right">
         <slot name="moveAllRight"/>
-      </button>
-      <button @click="moveRight" class="mb-25" :class="buttonClass">
+      </a>
+      <a @click="moveRight" class="mb-25" :class="buttonClass">
         <img v-if="!this.$slots.moveRight" src="../assets/chevron-right.svg" alt="Chevron right">
         <slot name="moveRight"/>
-      </button>
-      <button @click="moveLeft" :class="buttonClass">
+      </a>
+      <a @click="moveLeft" :class="buttonClass">
         <img v-if="!this.$slots.moveLeft" src="../assets/chevron-left.svg" alt="Chevron left">
         <slot name="moveLeft"/>
-      </button>
-      <button @click="moveAllLeft" class="mb-25" :class="buttonClass">
+      </a>
+      <a @click="moveAllLeft" class="mb-25" :class="buttonClass">
         <img v-if="!this.$slots.moveAllLeft" src="../assets/chevrons-left.svg" alt="Chevrons left">
         <slot name="moveAllLeft"/>
-      </button>
-      <button @click="unselectAll" :class="buttonClass">
+      </a>
+      <a @click="unselectAll" :class="buttonClass">
         <img v-if="!this.$slots.unselectAll" src="../assets/x.svg" alt="X icon">
         <slot name="unselectAll"/>
-      </button>
+      </a>
     </div>
     <div class="list-picker-container list-picker-right">
       <div class="list-picker-title" :class="getTitleClasses">
@@ -73,15 +73,15 @@ export default {
     },
     movedItemLocation: {
       type: String,
-      default: 'top'
+      default: 'bottom'
     },
     titleLeft: {
       type: String,
-      default: 'Items available'
+      default: 'Selecione o tipo de campo'
     },
     titleRight: {
       type: String,
-      default: 'Items selected'
+      default: 'Tipo de campo selecionado'
     },
     titleCentered: {
       type: Boolean,
@@ -93,7 +93,7 @@ export default {
     },
     titleSubstr: {
       type: Number,
-      default: 20
+      default: 40
     },
     buttonClass: {
       type: String,
@@ -101,7 +101,7 @@ export default {
     },
     contentKey: {
       type: String,
-      default: 'key'
+      default: 'id'
     },
     contentAttr: {
       type: String,
@@ -299,8 +299,6 @@ export default {
 }
 .vue-list-picker .list-picker-container {
   flex: 1 1 auto;
-  border: 1px solid #ddd;
-  background: #f9f9f9;
   border-radius: 3px;
   overflow: auto;
   display: flex;
@@ -309,6 +307,10 @@ export default {
 .vue-list-picker .list-picker-panel {
   min-height: 400px;
   overflow-y: auto;
+  border: 1px solid #dedede;
+  background: #fefefe;
+  margin-top: 11px;
+  border-radius: 2px;
 }
 .vue-list-picker .list-picker-item::selection {
   background: unset;
@@ -318,27 +320,28 @@ export default {
   align-self: center;
   padding: 0 15px;
 }
-.vue-list-picker .list-picker-actions > button {
+.vue-list-picker .list-picker-actions > a {
   min-width: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px 0;
+  border: 1px solid #dedede;
+  margin-top: -1px;
 }
-.vue-list-picker .list-picker-item,
-.vue-list-picker .list-picker-selected,
-.vue-list-picker .list-picker-title {
+.vue-list-picker .list-picker-item, .vue-list-picker .list-picker-selected, .vue-list-picker .list-picker-title {
   padding: 8px 10px;
   border-bottom: 1px solid #ccc;
+  font-size: 13px;
 }
 .vue-list-picker .list-picker-title {
-  background:#fafafa;
-  color: #0052c0;
-  font-size: 1.1em;
-  font-weight: 600;
+  background:#f0f0f0;
+  border: 1px solid #dcdcdc;
+  color: #595959;
 }
 .vue-list-picker .list-picker-selected {
-  background: #0052c0;
+  background: #13CB93;
   color: #F0F0F0;
   font-weight: 600;
 }
