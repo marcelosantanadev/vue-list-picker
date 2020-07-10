@@ -3,15 +3,11 @@
   "version": "0.1.2",
   "private": false,
   "scripts": {
-    "lint": "vue-cli-service lint",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook": "start-storybook",
     "storybook:old": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test:unit": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch",
-    "commit": "git-cz",
-    "commit:retry": "git-cz --retry",
-    "commitmsg": "commitlint -e"
+    "test:watch": "vue-cli-service test:unit --watch"
   },
   "dependencies": {
     "vue": "^2.6.10"
@@ -61,55 +57,11 @@
   ],
   "license": "MIT",
   "main": "./vue-list-picker.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com:guastallaigor/vue-list-picker.git"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "subject-case": [
-        0,
-        "never",
-        "sentence-case"
-      ],
-      "subject-full-stop": [
-        0,
-        "never",
-        "."
-      ]
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "jest": {
     "moduleFileExtensions": [
       "js",
