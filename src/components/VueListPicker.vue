@@ -1,6 +1,6 @@
 <template>
   <div class="vue-list-picker">
-    <div class="list-picker-container list-picker-left">
+    <div class="list-picker-container list-picker-left" v-bind:class="{'disabled': disabled}">
       <div class="list-picker-title" :class="getTitleClasses">
         {{ titleLeft | textSubstr(titleSubstr) }}
       </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="list-picker-actions">
+    <div class="list-picker-actions" v-bind:class="{'disabled': disabled}">
       <a @click="moveAllRight" :class="buttonClass">
         <img v-if="!this.$slots.moveAllRight" src="../assets/chevrons-right.svg" alt="Chevrons right">
         <slot name="moveAllRight"/>
@@ -39,7 +39,7 @@
         <slot name="unselectAll"/>
       </a>
     </div>
-    <div class="list-picker-container list-picker-right">
+    <div class="list-picker-container list-picker-right" v-bind:class="{'disabled': disabled}">
       <div class="list-picker-title" :class="getTitleClasses">
         {{ titleRight | textSubstr(titleSubstr) }}
       </div>
@@ -77,6 +77,10 @@
       titleLeft: {
         type: String,
         default: 'Selecione o tipo de campo'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       },
       titleRight: {
         type: String,
@@ -199,12 +203,18 @@
     },
     methods: {
       startDrag() {
+        if (this.disabled) return;
+
         this.dragging = true
       },
       stopDrag() {
+        if (this.disabled) return;
+
         this.dragging = false
       },
       selectUnselectItem(item, items) {
+        if (this.disabled) return;
+
         this.setItem(item, items, !item.isSelected)
       },
       setItem(item, items, val) {
@@ -220,15 +230,21 @@
         this.$forceUpdate()
       },
       selectItem(item, items) {
+        if (this.disabled) return;
+
         if (this.dragging) {
           const VALUE_IS_SET_TO_TRUE = true
           this.setItem(item, items, VALUE_IS_SET_TO_TRUE)
         }
       },
       moveRight() {
+        if (this.disabled) return;
+
         this.moveOne(this.unselectedItems, this.selectedItems, 'moverleft', 'move-right')
       },
       moveLeft() {
+        if (this.disabled) return;
+
         this.moveOne(this.selectedItems, this.unselectedItems, 'moverright', 'move-left')
       },
       unselect(items) {
@@ -240,11 +256,15 @@
         this.$forceUpdate()
       },
       unselectAll() {
+        if (this.disabled) return;
+
         this.unselect(this.unselectedItems)
         this.unselect(this.selectedItems)
         this.$emit('unselect-all')
       },
       moveOne(firstArray, secondArray, refsName, event) {
+        if (this.disabled) return;
+
         const items = firstArray.filter(itm => itm.isSelected)
         if (!items || !items.length) return
 
@@ -267,14 +287,20 @@
         this.unselectAll()
       },
       moveAllRight() {
+        if (this.disabled) return;
+
         this.moveAll(this.unselectedItems, this.selectedItems)
         this.$emit('move-all-right', this.selectedItems)
       },
       moveAllLeft() {
+        if (this.disabled) return;
+
         this.moveAll(this.selectedItems, this.unselectedItems)
         this.$emit('move-all-left', this.unselectedItems)
       },
       moveAll(firstArray, secondArray) {
+        if (this.disabled) return;
+
         for (let i = firstArray.length - 1; i >= 0; i--) {
           let item = firstArray[i]
           firstArray.splice(i, 1)
